@@ -1,11 +1,13 @@
 version: '3'
 services:
   mariadb:
-    image: mariadb
+    image: mariadb/server:10.3
     networks:
       - main-network
     environment:
       MYSQL_ROOT_PASSWORD: 123
+    ports:
+      - "3306:3306"
   springApplication:
     build:
       dockerfile: ./docker/springApp.dockerfile
