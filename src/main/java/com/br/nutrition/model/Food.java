@@ -1,5 +1,7 @@
 package com.br.nutrition.model;
 
+import com.br.nutrition.repository.FoodRepository;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -254,36 +256,34 @@ public class Food {
         VitaminC = vitaminC;
     }
 
-    @Override
-    public String toString() {
-        return "FoodModel{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", moisture=" + moisture +
-                ", energy=" + energy +
-                ", cholesterol='" + cholesterol + '\'' +
-                ", ashes=" + ashes +
-                ", protein=" + protein +
-                ", lipids=" + lipids +
-                ", carbohydrate=" + carbohydrate +
-                ", dietaryFiber=" + dietaryFiber +
-                ", calcium=" + calcium +
-                ", magnesium=" + magnesium +
-                ", manganese=" + manganese +
-                ", phosphor=" + phosphor +
-                ", iron=" + iron +
-                ", sodium=" + sodium +
-                ", potassium=" + potassium +
-                ", copper=" + copper +
-                ", zinc=" + zinc +
-                ", retinol='" + retinol + '\'' +
-                ", RE='" + RE + '\'' +
-                ", RAE='" + RAE + '\'' +
-                ", thiamine=" + thiamine +
-                ", riboflavin=" + riboflavin +
-                ", pyridoxine=" + pyridoxine +
-                ", niacin=" + niacin +
-                ", VitaminC=" + VitaminC +
-                '}';
+    public Food update(Long id, FoodRepository foodRepository){
+        Food food = foodRepository.getOne(id);
+        food.setDescription(this.getDescription());
+        food.setMoisture(this.getMoisture());
+        food.setEnergy(this.getEnergy());
+        food.setCholesterol(this.getCholesterol());
+        food.setAshes(this.getAshes());
+        food.setProtein(this.getProtein());
+        food.setLipids(this.getLipids());
+        food.setCarbohydrate(this.getCarbohydrate());
+        food.setDietaryFiber(this.getDietaryFiber());
+        food.setCalcium(this.getCalcium());
+        food.setMagnesium(this.getMagnesium());
+        food.setManganese(this.getManganese());
+        food.setPhosphor(this.getPhosphor());
+        food.setIron(this.getIron());
+        food.setSodium(this.getSodium());
+        food.setPotassium(this.getPotassium());
+        food.setCopper(this.getCopper());
+        food.setZinc(this.getZinc());
+        food.setRetinol(this.getRetinol());
+        food.setRE(this.getRE());
+        food.setRAE(this.getRAE());
+        food.setThiamine(this.getThiamine());
+        food.setRiboflavin(this.getRiboflavin());
+        food.setPyridoxine(this.getPyridoxine());
+        food.setNiacin(this.getNiacin());
+        food.setVitaminC(this.getVitaminC());
+        return food;
     }
 }
